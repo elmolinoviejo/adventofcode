@@ -7,26 +7,6 @@ def file_to_wire_directions(fn):
         w2 = fh.readline().rstrip().split(',')
     return w1, w2
 
-def get_wire_path(w, start_loc=np.array([0, 0])):
-    # Reads list of wire paths and returns a list of tuple
-    # coordinates that the wire passes through
-    
-    direction_dict = {'U':np.array([-1, 0]), 'D':np.array([1, 0]),
-                      'L':np.array([0, -1]), 'R':np.array([0, 1])}
-    wire_locs = []
-    wire_locs.append(start_loc)
-    current_loc = start_loc
-    for move in w:
-        d = move[0]
-        direction = direction_dict[d]
-        
-        dist = int(move[1:])
-        
-        for _ in range(dist):
-            current_loc = current_loc+direction
-            wire_locs.append(current_loc)
-    return [tuple(wl) for wl in wire_locs]
-
 def get_wire_path_timing(w, start_loc=np.array([0, 0])):
     # Reads list of wire paths and returns:
     # (1) a list of tuple coordinates that the wire passes through
@@ -47,16 +27,16 @@ def get_wire_path_timing(w, start_loc=np.array([0, 0])):
         for _ in range(dist):
             current_loc = current_loc+direction
             wire_locs.append(current_loc)
-            
+  
             current_time = current_time+1
             if tuple(current_loc) not in loc_times:
                 loc_times[tuple(current_loc)] = current_time
             elif current_time < loc_times[tuple(current_loc)]:
                 loc_times[tuple(current_loc)] = current_time
 
-            
+    
     return [tuple(wl) for wl in wire_locs], loc_times
-        
+
 def shared_paths(path1, path2):
     sp = (set(path1)&set(path2))
     sp.remove((0,0))
@@ -64,8 +44,6 @@ def shared_paths(path1, path2):
 
 def calc_dist(loc):
     return np.abs(loc[0])+np.abs(loc[1])
-    
-    
 
 fn = '03.txt'
 w1, w2 = file_to_wire_directions(fn)
