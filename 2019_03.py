@@ -67,7 +67,7 @@ def calc_dist(loc):
     
     
 
-fn = '../inputs/03.txt'
+fn = '03.txt'
 w1, w2 = file_to_wire_directions(fn)
 path1, t1 = get_wire_path_timing(w1)
 path2, t2 = get_wire_path_timing(w2)
