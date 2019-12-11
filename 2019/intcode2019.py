@@ -1,5 +1,5 @@
 class Computer:
-    '''Stores program and other values of the IntCode Computer'''
+    '''Stores program list and other values of the IntCode Computer'''
     def __init__(self, program=[], input_val=0):
         self.program = program
         self.pointer = 0
@@ -20,8 +20,8 @@ class Computer:
                              99: self.op99}
 
     def get_param_inds(self, modes):
-        '''Returns the indices of the parameters to be passed to each
-        opcode.'''
+        '''Returns the program indices for the parameters to be passed
+        to the next opcode.'''
         param_inds = []
         for ind, m in enumerate(modes):
             if m == 0:
@@ -91,9 +91,11 @@ class Computer:
         None
 
     def run_op(self, verbose=False):
+        '''Runs the next opcode in the program'''
         opcode, modes = read_instruction(self.program[self.pointer])
         param_inds = self.get_param_inds(modes)
         if param_inds and (max(param_inds) > len(self.program)):
+            # This adds more memory than necessary (+1000)
             self.program.extend(
                 [0 for _ in range(max(param_inds) - len(self.program) + 1000)])
         if verbose:
@@ -107,7 +109,7 @@ class Computer:
 
 
 def input_to_program(fn):
-    '''Takes input file and returns IntCode program as a list.'''
+    '''Reads input file and returns IntCode program as a list.'''
     with open(fn, 'r') as fh:
         for _ in range(1):
             program_string = fh.readline().rstrip()
@@ -116,7 +118,7 @@ def input_to_program(fn):
 
 
 def read_instruction(inst):
-    '''Takes instruction and outputs opcode and modes.'''
+    '''Reads instruction and outputs opcode and parameter modes.'''
     opcode_nparams = {1: 3,
                       2: 3,
                       3: 1,
