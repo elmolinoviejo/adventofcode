@@ -94,10 +94,10 @@ class Computer:
         '''Runs the next opcode in the program'''
         opcode, modes = read_instruction(self.program[self.pointer])
         param_inds = self.get_param_inds(modes)
-        if param_inds and (max(param_inds) > len(self.program)):
+        if self.param_inds and (max(self.param_inds) > len(self.program)-1):
             # This adds more memory than necessary (+1000)
             self.program.extend(
-                [0 for _ in range(max(param_inds) - len(self.program) + 1000)])
+                [0 for _ in range(max(param_inds) - len(self.program) + 1)])
         if verbose:
             print(self.program)
             print('Pointer: {}\nOpcode: {}\nparam_inds: {}\nrel base: {}'.format(
