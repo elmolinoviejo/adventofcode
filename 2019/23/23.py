@@ -17,7 +17,8 @@ class Network_Node:
         self.current_output = None
         self.last_action_receive = True
         self.last_receive_count = 0
-        
+
+
 def get_next_input(input_queues, nad):
     if len(input_queues[nad]) > 0:
         input_val = input_queues[nad][0]
