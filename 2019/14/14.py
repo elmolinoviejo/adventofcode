@@ -82,7 +82,7 @@ def parse_reactions(fn):
     return rxns
 
 
-reactions = Reactions(parse_reactions('14_test3.txt'))
+reactions = Reactions(parse_reactions('14.txt'))
 reactions.get_all_rps()
 
 # rxn_steps = []
