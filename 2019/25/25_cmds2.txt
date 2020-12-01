@@ -1,0 +1,5 @@
+north
+north
+west
+south
+take giant electromagnet

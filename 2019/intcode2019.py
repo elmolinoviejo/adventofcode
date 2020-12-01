@@ -1,5 +1,6 @@
 class Computer:
     '''Stores program list and other values of the IntCode Computer'''
+
     def __init__(self, program=[], input_val=0):
         self.program = program
         self.pointer = 0
@@ -25,11 +26,11 @@ class Computer:
         param_inds = []
         for ind, m in enumerate(modes):
             if m == 0:
-                param_inds.append(self.program[self.pointer+ind+1])
+                param_inds.append(self.program[self.pointer + ind + 1])
             elif m == 1:
-                param_inds.append(self.pointer+ind+1)
+                param_inds.append(self.pointer + ind + 1)
             elif m == 2:
-                param_inds.append(self.program[self.pointer+ind+1] +
+                param_inds.append(self.program[self.pointer + ind + 1] +
                                   self.relative_base)
         return param_inds
 
@@ -94,7 +95,7 @@ class Computer:
         '''Runs the next opcode in the program'''
         opcode, modes = read_instruction(self.program[self.pointer])
         param_inds = self.get_param_inds(modes)
-        if param_inds and (max(param_inds) > len(self.program)-1):
+        if param_inds and (max(param_inds) > len(self.program) - 1):
             # This adds more memory than necessary (+1000)
             self.program.extend(
                 [0 for _ in range(max(param_inds) - len(self.program) + 1)])

@@ -1,0 +1,44 @@
+south
+south
+take tambourine
+north
+north
+west
+south
+take polygon
+north
+east
+north
+north
+take manifold
+north
+take hologram
+south
+west
+take fuel cell
+south
+east
+south
+take fixed point
+north
+west
+north
+east
+south
+west
+take boulder
+east
+north
+west
+north
+take wreath
+east
+east
+drop tambourine
+drop hologram
+drop fuel cell
+drop wreath
+drop boulder
+drop fixed point
+drop manifold
+drop polygon

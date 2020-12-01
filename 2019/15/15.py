@@ -236,7 +236,7 @@ while len(check_locs) > 0:
     n_iter += 1
     # if n_iter % 25 == 0:
     #     plot_map(passage_locs, wall_locs)
-plot_map(passage_locs, wall_locs)
+    plot_map(passage_locs, wall_locs)
 # print(locs_to_check(passage_locs, wall_locs, passage_locs))
 
 passage_locs.remove(end_loc)
