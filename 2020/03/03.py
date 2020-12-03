@@ -30,7 +30,7 @@ print('Part 1:')
 print(tree_count((3, 1), tree_map))
 # Part 2
 print('Part 2:')
-slopes = slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
+slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
 prod = 1
 for slope in slopes:
     prod = prod * tree_count(slope, tree_map)
