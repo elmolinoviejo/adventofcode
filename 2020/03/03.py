@@ -1,6 +1,3 @@
-import numpy as np
-
-
 def input_to_tree_map(fn):
     tree_map = []
     with open(fn) as fh:
