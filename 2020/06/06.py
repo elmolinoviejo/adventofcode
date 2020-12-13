@@ -9,8 +9,8 @@ def solve_groups(groups):
         sets = [set(g) for g in group]
         na += len(set.union(*sets))
         nb += len(set.intersection(*sets))
-    print(f"Part A:\t{na}")
-    print(f"Part B:\t{nb}")
+    print(f"Part 1:\t{na}")
+    print(f"Part 2:\t{nb}")
 
 
 solve_groups(input_to_groups('06.txt'))

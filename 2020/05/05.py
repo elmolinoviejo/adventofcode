@@ -35,7 +35,7 @@ seat_ids = []
 for bp in bps:
     seat_coords.append(bp_to_seat(bp))
     seat_ids.append(seat_id(bp_to_seat(bp)))
-print(f"Part A:\t{max(seat_ids)}")
+print(f"Part 1:\t{max(seat_ids)}")
 
 # Part 2
 for row in range(1, 127):
@@ -43,4 +43,4 @@ for row in range(1, 127):
         if [row, col] not in seat_coords:
             val = seat_id([row, col])
             if (val + 1 in seat_ids) and (val - 1 in seat_ids):
-                print(f"Part B:\t{val}")
+                print(f"Part 2:\t{val}")

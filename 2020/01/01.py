@@ -23,8 +23,6 @@ def part2(inputs):
 
 inputs = read_input('01.txt')
 # Part 1
-print('Part 1:')
-print(part1(inputs))
+print(f'Part 1:\t{part1(inputs)}')
 # Part 2
-print('Part 2:')
-print(part2(inputs))
+print(f'Part 2:\t{part2(inputs)}')

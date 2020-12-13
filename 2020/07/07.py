@@ -65,4 +65,4 @@ def num_bags_within(outer_inner, start_bag):
 inner_outer, outer_inner = import_bag_pairs('07.txt')
 part1 = num_containing_bags(inner_outer, 'shiny gold')
 part2 = num_bags_within(outer_inner, 'shiny gold')
-print(f"Part A:\t{part1}\nPart B:\t{part2}")
+print(f"Part 1:\t{part1}\nPart 2:\t{part2}")

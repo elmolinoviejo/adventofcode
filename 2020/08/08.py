@@ -7,7 +7,26 @@ def input_to_program(fn):
     return program
 
 
+def acc(val, a, ind):
+    a += val
+    ind += 1
+    return a, ind
+
+
+def jmp(val, a, ind):
+    ind += val
+    return a, ind
+
+
+def nop(val, a, ind):
+    ind += 1
+    return a, ind
+
+
 def run_program(program):
+    step_funcs = {'acc': acc,
+                  'jmp': jmp,
+                  'nop': nop}
     a = 0  # accumulator
     ind = 0
     ind_order = []
@@ -24,13 +43,7 @@ def run_program(program):
             ind_order.append(ind)
 
         step, val = program[ind]
-        if step == 'acc':
-            a += val
-            ind += 1
-        elif step == 'nop':
-            ind += 1
-        elif step == 'jmp':
-            ind += val
+        a, ind = step_funcs[step](val, a, ind)
 
 
 def modulate_program(program):
@@ -49,5 +62,5 @@ def modulate_program(program):
 
 
 program = input_to_program('08.txt')
-print(f"Part A:\t{run_program(program)[0]}")
-print(f"Part B:\t{modulate_program(program)}")
+print(f"Part 1:\t{run_program(program)[0]}")
+print(f"Part 2:\t{modulate_program(program)}")

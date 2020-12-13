@@ -58,9 +58,9 @@ deltas = get_deltas(nums)
 
 # Part A
 ans1 = (Counter(deltas)[1] * (Counter(deltas)[3] + 1))
-print(f"Part A:\t{ans1}")
+print(f"Part 1:\t{ans1}")
 
 # Part B
 seqs = count_sequential(deltas)
 ans2 = ways_from_seq(seqs)
-print(f"Part B:\t{ans2}")
+print(f"Part 2:\t{ans2}")

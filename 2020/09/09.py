@@ -32,5 +32,5 @@ def partB(num_list):
 fn = '09.txt'
 num_list = get_num_list(fn)
 
-print(f"Part A:\t{partA(num_list)}")
-print(f"Part B:\t{partB(num_list)}")
+print(f"Part 1:\t{partA(num_list)}")
+print(f"Part 2:\t{partB(num_list)}")
