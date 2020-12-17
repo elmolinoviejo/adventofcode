@@ -67,3 +67,5 @@ for part, dim in runs.items():
     for _ in range(6):
         locs = step(locs, dimensions=dim)
     print(f"{part}:\t{sum([v=='#' for v in locs.values()])}")
+
+#test ssh
