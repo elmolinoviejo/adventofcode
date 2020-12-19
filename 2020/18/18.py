@@ -72,12 +72,3 @@ print(f"Part 1:\t{ans}")
 # Part 2
 ans = sum([aoc_eval2(exp) for exp in get_exp_list('18.txt')])
 print(f"Part 2:\t{ans}")
-
-exp = '1 + 2 * 3 + 4 * 5 + 6'
-# exp = '2 * 3 + (4 * 5)'
-# exp = '5 + (8 * 3 + 9 + 3 * 4 * 3)'
-# exp = '5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))'
-# exp = '((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2'
-
-# print(get_next_parens(exp))
-print(aoc_eval2(exp))
