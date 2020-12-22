@@ -156,7 +156,6 @@ for n in G:
 print(f"Part 1:\t{ans}")
 
 # Part 2
-
 start = corners[0]  # one of the corners
 tile_locs = {}  # (y, x): tile
 G, tiles, tile_locs = place_tiles(G, tiles, tile_locs, start)
