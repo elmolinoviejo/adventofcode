@@ -10,7 +10,6 @@ def read_input(fn):
         boards = []
         for block in blocks[1:]:
             board = []
-            # boards.append([])
             for row in block.split('\n'):
                 board.append([int(x) for x in row.split()])
             boards.append(np.array(board))
@@ -20,7 +19,6 @@ def read_input(fn):
 def check_board(board):
     dim = board.shape[0]
     for x in range(dim):
-        # print(board[x, :])
         if sum(np.isnan(board[x, :])) == dim:
             return True
         if sum(np.isnan(board[:, x])) == dim:
