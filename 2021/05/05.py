@@ -20,9 +20,9 @@ def check_diag(edge):
     return False
 
 
-def get_locs(edge):
+def get_locs(edge, skipdiag=False):
     (x1, y1), (x2, y2) = edge
-    if check_diag(edge):
+    if check_diag(edge) and skipdiag:
         continue
     else:
         if x1 > x2:
