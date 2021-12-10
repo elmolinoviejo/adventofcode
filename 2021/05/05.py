@@ -22,21 +22,32 @@ def check_diag(edge):
 
 def get_locs(edge, skipdiag=False):
     (x1, y1), (x2, y2) = edge
+
     if check_diag(edge) and skipdiag:
         continue
+
+    # change to use sign of difference
+    if x1 < x2:
+        dx = 1
+    elif x1 > x2:
+        dx = -1
+
+    if y1 < y2:
+        dy = 1
+    elif y1 > y2:
+        dy = -1
+
+    if x1 == x2:
+        locs = [(x1, y) for y in np.arange(y1, y2 + dy, dy)]
+    if y1 == y2:
+        locs = [(x, y1) for x in np.arange(x1, x2 + dx, dx)]
+
+
+    elif check_diag(edge):
+
     else:
-        if x1 > x2:
-            xa = x1
-            xb = x2 - 1
-            step = -1
-        elif x1 < x2:
-            xa = x1
-            xb = x2 + 1
-            step = 1
-        for x in np.arange(x1, x2 - 1, -1):
-            locs.append(x, y1)
-        else:
-            for x in 
+        if y1 == y2:
+            locs = [(x, y1) for x ]
 
 fn = '05.txt'
 els = read_input(fn)
