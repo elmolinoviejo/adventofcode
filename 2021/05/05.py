@@ -1,3 +1,4 @@
+from collections import Counter
 import numpy as np
 
 
@@ -20,35 +21,42 @@ def check_diag(edge):
     return False
 
 
-def get_locs(edge, skipdiag=False):
+def get_locs(edge, skipdiag=True):
     (x1, y1), (x2, y2) = edge
+    dx = np.sign(x2 - x1)
+    dy = np.sign(y2 - y1)
 
-    if check_diag(edge) and skipdiag:
-        continue
+    if check_diag(edge):
+        if skipdiag:
+            return []
+        locs = [(x, y) for x, y in zip(
+            np.arange(x1, x2 + dx, dx),
+            np.arange(y1, y2 + dy, dy))]
 
-    # change to use sign of difference
-    if x1 < x2:
-        dx = 1
-    elif x1 > x2:
-        dx = -1
-
-    if y1 < y2:
-        dy = 1
-    elif y1 > y2:
-        dy = -1
-
-    if x1 == x2:
+    elif x1 == x2:
         locs = [(x1, y) for y in np.arange(y1, y2 + dy, dy)]
-    if y1 == y2:
+    elif y1 == y2:
         locs = [(x, y1) for x in np.arange(x1, x2 + dx, dx)]
 
+    return locs
 
-    elif check_diag(edge):
 
-    else:
-        if y1 == y2:
-            locs = [(x, y1) for x ]
+def solve(edges, skipdiag=True):
+    loc_counts = Counter()
+    for edge in edges:
+        locs = get_locs(edge, skipdiag)
+        for loc in locs:
+            loc_counts[loc] += 1
+
+    ans = 0
+    for k, v in loc_counts.items():
+        if v > 1:
+            ans += 1
+    return ans
+
 
 fn = '05.txt'
-els = read_input(fn)
-print(els)
+edges = read_input(fn)
+
+print(solve(edges))
+print(solve(edges, skipdiag=False))
