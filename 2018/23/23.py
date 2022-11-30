@@ -204,10 +204,10 @@ while len(to_check) > 0:
 
 
 
-# 5658529 too low
-# 8944674 too low
-# 7944674 
+#  5658529 too low
+#  8944674 too low
 # 42611322 too low
+# 43947521 wrong 
 # 46281258 wrong
 # 46279329 wrong
 # 45748547 wrong
