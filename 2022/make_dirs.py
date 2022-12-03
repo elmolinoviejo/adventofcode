@@ -1,7 +1,5 @@
 import os
 
-# days = list(range(1, 26))
-
 for d in range(1, 26):
     dname = f"{d:02d}"
     fname = f"{dname}/{dname}.txt"
