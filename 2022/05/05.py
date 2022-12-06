@@ -14,10 +14,9 @@ def read_input(fn, ncols):
         for c in range(ncols):
             ind = (c * 4) + 1
             lett = crate_line[ind]
-            if lett==' ':
-                continue
-            else:
+            if lett!=' ':
                 stacks[c].append(lett)
+                
 
     moves = []
     for line in steps:
@@ -43,8 +42,6 @@ def move_crates(move, stacks, how='one'):
         stacks[to - 1].extendleft(queue)
 
     return stacks
-
-
 
 
 print('Part 1')
