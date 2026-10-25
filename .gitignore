@@ -1,2 +1,4 @@
 .DS_Store
 2020/notebooks/
+*.txt
+__pycache__/
